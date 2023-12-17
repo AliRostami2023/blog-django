@@ -1,0 +1,24 @@
+{% load render_partial %}
+<!DOCTYPE html>
+<html lang="en">
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Site Metas -->
+    <title>{% block title %}{% endblock  %}</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% include "shared/header-refrence.html" %}
+</head>
+<body>
+    <div id="wrapper">
+        {% render_partial 'home.views.site_header_component' %}
+        {% block content %}{% endblock  %}
+        {% render_partial 'home.views.site_footer_component' %}
+    </div><!-- end wrapper -->
+    {% include "shared/footer-refrence.html" %}
+</body>
+</html>

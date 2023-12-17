@@ -1,0 +1,19 @@
+{% extends "shared/layout.html" %}
+
+
+{% block title %}login{% endblock title %}
+
+
+{% block content %}
+    <div class="main">
+        <p class="sign" align="center">Sign In</p>
+        <form method="post" class="form1">
+            {% csrf_token %}
+            {{ login_form }}
+            <button type="submit" class="submit" align="center">Sign In</button>
+            <p class="forgot" align="center"><a href="{% url 'account:forget-pass-page' %}">Forgot Password?</a></p>
+            <p class="forgot" align="center"><a href="{% url 'account:register-page' %}">register</a></p>
+        </form>
+    </div>
+{% endblock %}
+
