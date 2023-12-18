@@ -1,5 +1,6 @@
 {% extends 'shared/layout.html' %}
 {% load thumbnail %}
+{% load ratings %}
 
 
 {% block title %}
@@ -58,6 +59,7 @@
                                 {% endfor %}
 
                             </div><!-- end meta -->
+                        <div>{% ratings article %}</div>
 
                             <div class="post-sharing">
                                 <ul class="list-inline">
@@ -65,8 +67,6 @@
                                         <span class="down-mobile">Share on Facebook</span></a></li>
                                     <li><a href="#" class="tw-button btn btn-primary"><i class="fa fa-twitter"></i>
                                         <span class="down-mobile">Tweet on Twitter</span></a></li>
-                                    <li><a href="#" class="gp-button btn btn-primary"><i class="fa fa-google-plus"></i></a>
-                                    </li>
                                 </ul>
                             </div><!-- end post-sharing -->
                         </div><!-- end title -->

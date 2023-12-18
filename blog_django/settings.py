@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = 'django-insecure-w)2yqge+86oq_lpkbl+ay733t%jo8nwyj1faim+jqztl_l3uow
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -46,6 +44,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'ckeditor',
     'ckeditor_uploader',
+    'star_ratings',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +80,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'blog_django.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -91,7 +89,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -111,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -122,7 +118,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -147,7 +142,6 @@ EMAIL_HOST_USER = 'alirostami1253@gmail.com'
 EMAIL_HOST_PASSWORD = 'rxcorfqiarllawbu'
 EMAIL_PORT = 587
 
-
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "media/"
 
@@ -156,3 +150,8 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'full',
     },
 }
+
+STAR_RATINGS_RERATE = False
+STAR_RATINGS_RANGE = 5
+STAR_RATINGS_ANONYMOUS = False
+STAR_RATINGS_STAR_HEIGHT = 16
