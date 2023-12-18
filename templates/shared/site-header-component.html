@@ -83,15 +83,12 @@
                     <li class="nav-item">
                         <a class="nav-link color-green-hover" href="{% url 'article:article-list' %}">Explore</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-green-hover" href="garden-category.html">Outdoor Living</a>
+                    {% for category in categories %}
+                    	<li class="nav-item">
+                        <a class="nav-link color-green-hover" href="{% url 'article:category-article-list' category.url_title %}">{{ category.title }}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-green-hover" href="garden-category.html">Indoor Living</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link color-green-hover" href="garden-category.html">Shopping Guides</a>
-                    </li>
+                    {% endfor %}
+
                     <li class="nav-item">
                         {% if request.user.is_authenticated %}
                             <a class="nav-link color-green-hover btn-warning" href="{% url 'account:logout-page' %}">logout</a>

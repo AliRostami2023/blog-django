@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 
+from article.models import Category
+
+
 # Create your views here.
 
 
@@ -9,7 +12,8 @@ class HomeView(TemplateView):
 
 
 def site_header_component(request):
-    return render(request, 'shared/site-header-component.html')
+    categories = Category.objects.filter(published=True).all()
+    return render(request, 'shared/site-header-component.html', {'categories': categories})
 
 
 def site_footer_component(request):

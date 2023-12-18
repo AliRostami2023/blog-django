@@ -1,0 +1,12 @@
+<div class="widget">
+    <h2 class="widget-title">Popular Categories</h2>
+    <div class="link-widget">
+        <ul>
+            {% for category in categories %}
+            	<li><a href="{% url 'article:category-article-list' category.url_title %}">{{ category.title }} <span>({{ category.category_article.count }})</span></a></li>
+            {% endfor %}
+
+        </ul>
+    </div><!-- end link-widget -->
+</div><!-- end widget -->
+

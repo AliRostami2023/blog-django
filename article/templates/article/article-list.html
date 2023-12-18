@@ -1,5 +1,6 @@
 {% extends 'shared/layout.html' %}
 {% load thumbnail %}
+{% load render_partial %}
 
 {% block title %}
     articles
@@ -87,6 +88,8 @@
                             </form>
                         </div><!-- end widget -->
 
+                        {% render_partial 'article.views.category_sidebar_component' %}
+
                         <div class="widget">
                             <h2 class="widget-title">Recent Posts</h2>
                             <div class="blog-list-widget">
@@ -146,19 +149,6 @@
                                 <a href="#"><img src="/static/upload/garden_sq_08.jpg" alt="" class="img-fluid"></a>
                                 <a href="#"><img src="/static/upload/garden_sq_09.jpg" alt="" class="img-fluid"></a>
                             </div><!-- end Instagram wrapper -->
-                        </div><!-- end widget -->
-
-                        <div class="widget">
-                            <h2 class="widget-title">Popular Categories</h2>
-                            <div class="link-widget">
-                                <ul>
-                                    <li><a href="#">Gardening <span>(21)</span></a></li>
-                                    <li><a href="#">Outdoor Living <span>(15)</span></a></li>
-                                    <li><a href="#">Indoor Living <span>(31)</span></a></li>
-                                    <li><a href="#">Shopping Guides <span>(22)</span></a></li>
-                                    <li><a href="#">Pool Design <span>(66)</span></a></li>
-                                </ul>
-                            </div><!-- end link-widget -->
                         </div><!-- end widget -->
                     </div><!-- end sidebar -->
                 </div><!-- end col -->
