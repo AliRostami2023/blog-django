@@ -29,13 +29,14 @@ class Article(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_article')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_article')
     title = models.CharField(max_length=500)
-    slug = models.SlugField(max_length=50, blank=True, allow_unicode=True)
+    slug = models.SlugField(max_length=50, blank=True, unique=True, allow_unicode=True)
     image = models.ImageField(upload_to='article')
     body = RichTextField()
     tags = models.ManyToManyField('Tag', related_name='tag_article')
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
     published = models.BooleanField(default=True)
+    views = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return f"{self.title}-{self.author}-{self.category}"
