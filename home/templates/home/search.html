@@ -1,0 +1,136 @@
+{% extends 'shared/layout.html' %}
+{% load thumbnail %}
+{% load render_partial %}
+
+
+{% block title %}
+	articles
+{% endblock %}
+
+
+{% block content %}
+	<section class="section wb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-wrapper">
+                        <div class="blog-list clearfix">
+                            {% for article in articles %}
+                                <div class="blog-box row">
+                                    <div class="col-md-4">
+                                        <div class="post-media">
+                                            <a href="{{ article.get_absolute_url }}" title="">
+                                                {% thumbnail article.image '210x210' crop='center' as im %}
+                                                    <img src="{{ im.url }}" alt="" class="img-fluid">
+                                                {% endthumbnail %}
+                                                <div class="hovereffect"></div>
+                                            </a>
+                                        </div><!-- end media -->
+                                    </div><!-- end col -->
+
+                                    <div class="blog-meta big-meta col-md-8">
+                                        <span class="bg-aqua"><a
+                                                href="{% url 'article:category-article-list' article.category.url_title %}">{{ article.category }}</a></span>
+                                        <h4><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h4>
+                                        <p>
+                                            {{ article.body | safe | truncatewords:20 }} <a
+                                                href="{{ article.get_absolute_url }}">read more</a>
+                                        </p>
+                                        <small><a href="" title=""><i class="fa fa-eye"></i>
+                                            {{ article.views }}</a></small>
+                                        <small><a href="">{{ article.created }}</a></small>
+                                        <small><a href="">{{ article.author }}</a></small>
+                                    </div><!-- end meta -->
+                                </div><!-- end blog-box -->
+
+                                <hr class="invis">
+                            {% endfor %}
+
+                        </div><!-- end blog-list -->
+                    </div><!-- end page-wrapper -->
+
+                    <hr class="invis">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <nav aria-label="Page navigation">
+                                <ul class="pagination justify-content-start">
+                                    <li class="page-item">
+                                        {% if page_obj.has_previous %}
+                                            <a class="page-link"
+                                               href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">pre</a>
+                                        {% endif %}
+                                    </li>
+                                    {% for pageNumber in paginator.page_range %}
+                                        <li class="{% if page_obj.number == pageNumber %}page-item active{% endif %}"><a
+                                                class="page-link"
+                                                href="?page={{ pageNumber }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ pageNumber }}</a></li>
+                                    {% endfor %}
+
+                                    <li class="page-item">
+                                        {% if page_obj.has_next %}
+                                            <a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next</a>
+                                        {% endif %}
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div><!-- end col -->
+                    </div><!-- end row -->
+                </div><!-- end col -->
+
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sidebar">
+
+                        {% render_partial 'article.views.category_sidebar_component' %}
+
+                        <div class="widget">
+                            <h2 class="widget-title">Recent Posts</h2>
+                            <div class="blog-list-widget">
+                                <div class="list-group">
+                                    <a href="garden-single.html"
+                                       class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="w-100 justify-content-between">
+                                            <img src="/static/upload/garden_sq_09.jpg" alt=""
+                                                 class="img-fluid float-left">
+                                            <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
+                                            <small>12 Jan, 2016</small>
+                                        </div>
+                                    </a>
+
+                                    <a href="garden-single.html"
+                                       class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="w-100 justify-content-between">
+                                            <img src="/static/upload/garden_sq_06.jpg" alt=""
+                                                 class="img-fluid float-left">
+                                            <h5 class="mb-1">Let's make an introduction for creative life</h5>
+                                            <small>11 Jan, 2016</small>
+                                        </div>
+                                    </a>
+
+                                    <a href="garden-single.html"
+                                       class="list-group-item list-group-item-action flex-column align-items-start">
+                                        <div class="w-100 last-item justify-content-between">
+                                            <img src="/static/upload/garden_sq_02.jpg" alt=""
+                                                 class="img-fluid float-left">
+                                            <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
+                                            <small>07 Jan, 2016</small>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!-- end blog-list -->
+                        </div><!-- end widget -->
+
+                        <div class="widget">
+                            <h2 class="widget-title">Advertising</h2>
+                            <div class="banner-spot clearfix">
+                                <div class="banner-img">
+                                    <img src="/static/upload/banner_04.jpg" alt="" class="img-fluid">
+                                </div><!-- end banner-img -->
+                            </div><!-- end banner -->
+                        </div><!-- end widget -->
+                    </div><!-- end sidebar -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+{% endblock %}

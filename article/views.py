@@ -41,3 +41,4 @@ class ArticleDetail(DetailView):
 def category_sidebar_component(request):
     categories = Category.objects.filter(published=True).all()
     return render(request, 'article/components/category-component.html', {'categories': categories})
+

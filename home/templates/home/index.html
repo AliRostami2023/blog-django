@@ -1,445 +1,178 @@
 {% extends 'shared/layout.html' %}
+{% load thumbnail %}
+
 
 {% block title %}
-  home
+    home
 {% endblock %}
 
 {% block content %}
-  <section class="section first-section">
-    <div class="container-fluid">
-      <div class="masonry-blog clearfix">
-        <div class="left-side">
-          <div class="masonry-box post-media">
-            <img src="/static/upload/garden_cat_01.jpg" alt="" class="img-fluid" />
-            <div class="shadoweffect">
-              <div class="shadow-desc">
-                <div class="blog-meta">
-                  <span class="bg-aqua"><a href="blog-category-01.html" title="">Gardening</a></span>
-                  <h4><a href="garden-single.html" title="">How to choose high quality soil for your gardens</a></h4>
-                  <small><a href="garden-single.html" title="">21 July, 2017</a></small>
-                  <small><a href="#" title="">by Amanda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end shadow-desc -->
-            </div>
-            <!-- end shadow -->
-          </div>
-          <!-- end post-media -->
-        </div>
-        <!-- end left-side -->
-
-        <div class="center-side">
-          <div class="masonry-box post-media">
-            <img src="/static/upload/garden_cat_02.jpg" alt="" class="img-fluid" />
-            <div class="shadoweffect">
-              <div class="shadow-desc">
-                <div class="blog-meta">
-                  <span class="bg-aqua"><a href="blog-category-01.html" title="">Outdoor</a></span>
-                  <h4><a href="garden-single.html" title="">You can create a garden with furniture in your home</a></h4>
-                  <small><a href="garden-single.html" title="">19 July, 2017</a></small>
-                  <small><a href="#" title="">by Amanda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end shadow-desc -->
-            </div>
-            <!-- end shadow -->
-          </div>
-          <!-- end post-media -->
-        </div>
-        <!-- end left-side -->
-
-        <div class="right-side hidden-md-down">
-          <div class="masonry-box post-media">
-            <img src="/static/upload/garden_cat_03.jpg" alt="" class="img-fluid" />
-            <div class="shadoweffect">
-              <div class="shadow-desc">
-                <div class="blog-meta">
-                  <span class="bg-aqua"><a href="blog-category-01.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">The success of the 10 companies in the vegetable sector</a></h4>
-                  <small><a href="garden-single.html" title="">03 July, 2017</a></small>
-                  <small><a href="#" title="">by Jessica</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end shadow-desc -->
-            </div>
-            <!-- end shadow -->
-          </div>
-          <!-- end post-media -->
-        </div>
-        <!-- end right-side -->
-      </div>
-      <!-- end masonry -->
-    </div>
-  </section>
-
-  <section class="section wb">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-          <div class="page-wrapper">
-            <div class="blog-list clearfix">
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_01.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">The best twenty plant species you can look at at home</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1887</a></small>
-                  <small><a href="garden-single.html" title="">11 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
-
-              <hr class="invis" />
-
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_02.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">How do you like the idea of creating a garden from the Amazon forests?</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 4441</a></small>
-                  <small><a href="garden-single.html" title="">10 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
-
-              <hr class="invis" />
-
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_03.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">Top 20 cafeterias decorated with quality plants</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1234</a></small>
-                  <small><a href="garden-single.html" title="">09 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
-
-              <hr class="invis" />
-
-              <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                  <div class="banner-spot clearfix">
-                    <div class="banner-img">
-                      <img src="/static/upload/banner_05.jpg" alt="" class="img-fluid" />
+    <section class="section first-section">
+        <div class="container-fluid">
+            <div class="masonry-blog clearfix">
+                {% for post in most_views %}
+                    <div class="left-side">
+                        <div class="masonry-box post-media">
+                            {% thumbnail post.image '534x468' crop='center' as im %}
+                                <img src="{{ im.url }}" alt="" class="img-fluid"/>
+                            {% endthumbnail %}
+                            <div class="shadoweffect">
+                                <div class="shadow-desc">
+                                    <div class="blog-meta">
+                                        <span class="bg-aqua"><a
+                                                href="{% url 'article:category-article-list' cat=post.category.url_title %}">{{ post.category }}</a></span>
+                                        <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+                                        <small><a href="" title="">{{ post.created }}</a></small>
+                                        <small><a href="#" title="">by {{ post.author }}</a></small>
+                                    </div>
+                                    <!-- end meta -->
+                                </div>
+                                <!-- end shadow-desc -->
+                            </div>
+                            <!-- end shadow -->
+                        </div>
+                        <!-- end post-media -->
                     </div>
-                    <!-- end banner-img -->
-                  </div>
-                  <!-- end banner -->
-                </div>
-                <!-- end col -->
-              </div>
-              <!-- end row -->
+                {% endfor %}
 
-              <hr class="invis" />
-
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_04.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">30 beautiful flowers you can look at in offices and workplaces</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 4441</a></small>
-                  <small><a href="garden-single.html" title="">08 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
-
-              <hr class="invis" />
-
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_05.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">Enjoy your living room with small garden biblings</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 2235</a></small>
-                  <small><a href="garden-single.html" title="">07 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
-
-              <hr class="invis" />
-
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_06.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">Why do you prefer small flowers at your workplace?</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1567</a></small>
-                  <small><a href="garden-single.html" title="">06 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
-
-              <hr class="invis" />
-
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_07.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">10 special plant species available to live in the window</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 1451</a></small>
-                  <small><a href="garden-single.html" title="">05 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
-
-              <hr class="invis" />
-
-              <div class="blog-box row">
-                <div class="col-md-4">
-                  <div class="post-media">
-                    <a href="garden-single.html" title="">
-                      <img src="/static/upload/garden_sq_08.jpg" alt="" class="img-fluid" />
-                      <div class="hovereffect"></div>
-                    </a>
-                  </div>
-                  <!-- end media -->
-                </div>
-                <!-- end col -->
-
-                <div class="blog-meta big-meta col-md-8">
-                  <span class="bg-aqua"><a href="garden-category.html" title="">Indoor</a></span>
-                  <h4><a href="garden-single.html" title="">Selection of high quality soil for vegetable gardening</a></h4>
-                  <p>Aenean interdum arcu blandit, vehicula magna non, placerat elit. Mauris et pharetratortor. Suspendissea sodales urna. In at augue elit. Vivamus enim nibh, maximus ac felis nec, maximus tempor odio.</p>
-                  <small><a href="garden-category.html" title=""><i class="fa fa-eye"></i> 4442</a></small>
-                  <small><a href="garden-single.html" title="">01 July, 2017</a></small>
-                  <small><a href="#" title="">by Matilda</a></small>
-                </div>
-                <!-- end meta -->
-              </div>
-              <!-- end blog-box -->
             </div>
-            <!-- end blog-list -->
-          </div>
-          <!-- end page-wrapper -->
-
-          <hr class="invis" />
-
-          <div class="row">
-            <div class="col-md-12">
-              <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-start">
-                  <li class="page-item">
-                    <a class="page-link" href="#">1</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">2</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">3</a>
-                  </li>
-                  <li class="page-item">
-                    <a class="page-link" href="#">Next</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-            <!-- end col -->
-          </div>
-          <!-- end row -->
+            <!-- end masonry -->
         </div>
-        <!-- end col -->
+    </section>
 
-        <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
-          <div class="sidebar">
-            <div class="widget">
-              <h2 class="widget-title">Search</h2>
-              <form class="form-inline search-form">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search on the site" />
-                </div>
-                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
-              </form>
-            </div>
-            <!-- end widget -->
+    <section class="section wb">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-wrapper">
+                        <div class="blog-list clearfix">
 
-            <div class="widget">
-              <h2 class="widget-title">Recent Posts</h2>
-              <div class="blog-list-widget">
-                <div class="list-group">
-                  <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="w-100 justify-content-between">
-                      <img src="/static/upload/garden_sq_09.jpg" alt="" class="img-fluid float-left" />
-                      <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                      <small>12 Jan, 2016</small>
+                            {% for article in articles %}
+                                <div class="blog-box row">
+                                    <div class="col-md-4">
+                                        <div class="post-media">
+                                            <a href="{{ article.get_absolute_url }}" title="">
+                                                {% thumbnail article.image '800x800' crop='center' as im %}
+                                                    <img src="{{ im.url }}" alt="" class="img-fluid"/>
+                                                {% endthumbnail %}
+                                                <div class="hovereffect"></div>
+                                            </a>
+                                        </div>
+                                        <!-- end media -->
+                                    </div>
+                                    <!-- end col -->
+
+                                    <div class="blog-meta big-meta col-md-8">
+                                        <span class="bg-aqua"><a href="{% url 'article:category-article-list' article.category.url_title %}">{{ article.category }}</a></span>
+                                        <h4><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h4>
+                                        <p>
+                                            {{ article.body | safe | truncatewords:25 }}
+                                        </p>
+                                        <small><a href=""><i class="fa fa-eye"></i>
+                                            {{ article.views }}</a></small>
+                                        <small><a href="">{{ article.created }}</a></small>
+                                        <small><a href="">by {{ article.author }}</a></small>
+                                    </div>
+                                    <!-- end meta -->
+                                </div>
+                                <!-- end blog-box -->
+
+                                <hr class="invis"/>
+                            {% endfor %}
+
+
+                            <!-- end blog-box -->
+                        </div>
+                        <!-- end blog-list -->
                     </div>
-                  </a>
+                    <!-- end page-wrapper -->
 
-                  <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="w-100 justify-content-between">
-                      <img src="/static/upload/garden_sq_06.jpg" alt="" class="img-fluid float-left" />
-                      <h5 class="mb-1">Let's make an introduction for creative life</h5>
-                      <small>11 Jan, 2016</small>
-                    </div>
-                  </a>
+                    <hr class="invis"/>
 
-                  <a href="garden-single.html" class="list-group-item list-group-item-action flex-column align-items-start">
-                    <div class="w-100 last-item justify-content-between">
-                      <img src="/static/upload/garden_sq_02.jpg" alt="" class="img-fluid float-left" />
-                      <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
-                      <small>07 Jan, 2016</small>
-                    </div>
-                  </a>
+                    <a href="{% url 'article:article-list' %}" class="btn btn-success">more article</a>
+                    <!-- end row -->
                 </div>
-              </div>
-              <!-- end blog-list -->
-            </div>
-            <!-- end widget -->
+                <!-- end col -->
 
-            <div class="widget">
-              <h2 class="widget-title">Advertising</h2>
-              <div class="banner-spot clearfix">
-                <div class="banner-img">
-                  <img src="/static/upload/banner_04.jpg" alt="" class="img-fluid" />
+                <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                    <div class="sidebar">
+                        <div class="widget">
+                            <h2 class="widget-title">Search</h2>
+                            <form action="{% url 'home:search-article' %}" class="form-inline search-form">
+                                <div class="form-group">
+                                    <input type="search" name="q" class="form-control" placeholder="Search Article"/>
+                                </div>
+                                <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <!-- end widget -->
+
+                        <div class="widget">
+                            <h2 class="widget-title">Recent Posts</h2>
+                            <div class="blog-list-widget">
+                                <div class="list-group">
+                                    {% for post in random_post %}
+                                        <a href="{{ post.get_absolute_url }}"
+                                           class="list-group-item list-group-item-action flex-column align-items-start">
+                                            <div class="w-100 justify-content-between">
+                                                {% thumbnail post.image '50x50' crop='center' as im %}
+                                                    <img src="{{ im.url }}" alt="" class="img-fluid float-left"/>
+                                                {% endthumbnail %}
+                                                <h5 class="mb-1">{{ post.title }}</h5>
+                                                <small>{{ post.created }}</small>
+                                            </div>
+                                        </a>
+                                    {% endfor %}
+
+                                </div>
+                            </div>
+                            <!-- end blog-list -->
+                        </div>
+                        <!-- end widget -->
+
+                        <div class="widget">
+                            <h2 class="widget-title">Advertising</h2>
+                            <div class="banner-spot clearfix">
+                                <div class="banner-img">
+                                    <img src="/static/upload/banner_04.jpg" alt="" class="img-fluid"/>
+                                </div>
+                                <!-- end banner-img -->
+                            </div>
+                            <!-- end banner -->
+                        </div>
+                        <!-- end widget -->
+
+                        <div class="widget">
+                            <h2 class="widget-title">Popular Categories</h2>
+                            <div class="link-widget">
+                                <ul>
+                                    <li>
+                                        <a href="#">Gardening <span>(21)</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Outdoor Living <span>(15)</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Indoor Living <span>(31)</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Shopping Guides <span>(22)</span></a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Pool Design <span>(66)</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end link-widget -->
+                        </div>
+                        <!-- end widget -->
+                    </div>
+                    <!-- end sidebar -->
                 </div>
-                <!-- end banner-img -->
-              </div>
-              <!-- end banner -->
+                <!-- end col -->
             </div>
-            <!-- end widget -->
-
-            <div class="widget">
-              <h2 class="widget-title">Instagram Feed</h2>
-              <div class="instagram-wrapper clearfix">
-                <a href="#"><img src="/static/upload/garden_sq_01.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_02.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_03.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_04.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_05.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_06.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_07.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_08.jpg" alt="" class="img-fluid" /></a>
-                <a href="#"><img src="/static/upload/garden_sq_09.jpg" alt="" class="img-fluid" /></a>
-              </div>
-              <!-- end Instagram wrapper -->
-            </div>
-            <!-- end widget -->
-
-            <div class="widget">
-              <h2 class="widget-title">Popular Categories</h2>
-              <div class="link-widget">
-                <ul>
-                  <li>
-                    <a href="#">Gardening <span>(21)</span></a>
-                  </li>
-                  <li>
-                    <a href="#">Outdoor Living <span>(15)</span></a>
-                  </li>
-                  <li>
-                    <a href="#">Indoor Living <span>(31)</span></a>
-                  </li>
-                  <li>
-                    <a href="#">Shopping Guides <span>(22)</span></a>
-                  </li>
-                  <li>
-                    <a href="#">Pool Design <span>(66)</span></a>
-                  </li>
-                </ul>
-              </div>
-              <!-- end link-widget -->
-            </div>
-            <!-- end widget -->
-          </div>
-          <!-- end sidebar -->
+            <!-- end row -->
         </div>
-        <!-- end col -->
-      </div>
-      <!-- end row -->
-    </div>
-    <!-- end container -->
-  </section>
+        <!-- end container -->
+    </section>
 {% endblock %}

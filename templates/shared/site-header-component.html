@@ -1,8 +1,8 @@
 <div class="collapse top-search" id="collapseExample">
     <div class="card card-block">
         <div class="newsletter-widget text-center">
-            <form class="form-inline">
-                <input type="text" class="form-control" placeholder="What you are looking for?"/>
+            <form action="{% url 'home:search-article' %}" class="form-inline">
+                <input type="search" name="q" class="form-control" placeholder="What you are looking for?"/>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i></button>
             </form>
         </div>
