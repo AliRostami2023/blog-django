@@ -1,5 +1,3 @@
-from typing import Any
-
 from django.core.paginator import Paginator
 from django.http import HttpRequest
 from django.shortcuts import render
@@ -14,7 +12,7 @@ from article.models import Category
 class HomeView(TemplateView):
     template_name = 'home/index.html'
 
-    def get_context_data(self, **kwargs: Any):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['random_post'] = Article.objects.order_by('?')[:1]
         context['most_views'] = Article.objects.all().order_by('-views')[:3]
@@ -38,3 +36,4 @@ def site_header_component(request):
 
 def site_footer_component(request):
     return render(request, 'shared/site-footer-component.html')
+
