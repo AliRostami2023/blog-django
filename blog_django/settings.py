@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'home.apps.HomeConfig',
     'account.apps.AccountConfig',
     'article.apps.ArticleConfig',
-    'site_setting.apps.Site_settingConfig',
+    'site_setting.apps.SiteSettingConfig',
 
     # lib
     'django_render_partial',

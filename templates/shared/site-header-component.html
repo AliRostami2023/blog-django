@@ -16,20 +16,16 @@
         <div class="row">
             <div class="col-lg-4 col-md-6 col-sm-6 hidden-xs-down">
                 <div class="topsocial">
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i
+                    <a href="{{ setting.facebook }}" data-toggle="tooltip" data-placement="bottom" title="Facebook"><i
                             class="fa fa-facebook"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i
+                    <a href="{{ setting.youtube }}" data-toggle="tooltip" data-placement="bottom" title="Youtube"><i
                             class="fa fa-youtube"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
+                    <a href="{{ setting.pintrest }}" data-toggle="tooltip" data-placement="bottom" title="Pinterest"><i
                             class="fa fa-pinterest"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i
-                            class="fa fa-twitter"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Flickr"><i
-                            class="fa fa-flickr"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i
+                    <a href="{{ setting.telegram }}" data-toggle="tooltip" data-placement="bottom" title="telegram"><i
+                            class="fa fa-telegram"></i></a>
+                    <a href="{{ setting.instagram }}" data-toggle="tooltip" data-placement="bottom" title="Instagram"><i
                             class="fa fa-instagram"></i></a>
-                    <a href="#" data-toggle="tooltip" data-placement="bottom" title="Google+"><i
-                            class="fa fa-google-plus"></i></a>
                 </div>
                 <!-- end social -->
             </div>
@@ -58,7 +54,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="logo">
-                    <a href="{% url 'home:home-page' %}"><img src="/static/images/version/garden-logo.png" alt=""/></a>
+                    <a href="{% url 'home:home-page' %}"><img src="{{ setting.logo_site.url }}" alt=""/></a>
                 </div>
                 <!-- end logo -->
             </div>

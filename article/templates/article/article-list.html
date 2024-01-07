@@ -96,35 +96,18 @@
                             <h2 class="widget-title">Recent Posts</h2>
                             <div class="blog-list-widget">
                                 <div class="list-group">
+                                    {% for post in random_post %}
                                     <a href="garden-single.html"
-                                       class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 justify-content-between">
-                                            <img src="/static/upload/garden_sq_09.jpg" alt=""
-                                                 class="img-fluid float-left">
-                                            <h5 class="mb-1">5 Beautiful buildings you need to before dying</h5>
-                                            <small>12 Jan, 2016</small>
-                                        </div>
-                                    </a>
-
-                                    <a href="garden-single.html"
-                                       class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 justify-content-between">
-                                            <img src="/static/upload/garden_sq_06.jpg" alt=""
-                                                 class="img-fluid float-left">
-                                            <h5 class="mb-1">Let's make an introduction for creative life</h5>
-                                            <small>11 Jan, 2016</small>
-                                        </div>
-                                    </a>
-
-                                    <a href="garden-single.html"
-                                       class="list-group-item list-group-item-action flex-column align-items-start">
-                                        <div class="w-100 last-item justify-content-between">
-                                            <img src="/static/upload/garden_sq_02.jpg" alt=""
-                                                 class="img-fluid float-left">
-                                            <h5 class="mb-1">Did you see the most beautiful sea in the world?</h5>
-                                            <small>07 Jan, 2016</small>
-                                        </div>
-                                    </a>
+                                    class="list-group-item list-group-item-action flex-column align-items-start">
+                                     <div class="w-100 justify-content-between">
+                                         {% thumbnail post.image '50x50' crop='center' as im %}
+                                         <img src="{{ im.url }}" alt=""class="img-fluid float-left">
+                                         {% endthumbnail %}
+                                         <h5 class="mb-1">{{ post.title }}</h5>
+                                         <small>{{ post.created }}</small>
+                                     </div>
+                                 </a>
+                                    {% endfor %}
                                 </div>
                             </div><!-- end blog-list -->
                         </div><!-- end widget -->
@@ -133,7 +116,11 @@
                             <h2 class="widget-title">Advertising</h2>
                             <div class="banner-spot clearfix">
                                 <div class="banner-img">
-                                    <img src="/static/upload/banner_04.jpg" alt="" class="img-fluid">
+                                    {% thumbnail adver.image '1200x1200' crop='center' as im %}
+                                    <a href='{{ adver.url }}'>
+                                        <img src="{{ im.url }}" alt="" class="img-fluid"/>
+                                    </a>
+                                    {% endthumbnail %}
                                 </div><!-- end banner-img -->
                             </div><!-- end banner -->
                         </div><!-- end widget -->

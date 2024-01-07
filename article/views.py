@@ -1,7 +1,7 @@
 from django.db.models import Count
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView
-
+from site_setting.models import Adver
 from article.models import Article, Category
 
 
@@ -13,6 +13,12 @@ class ArticleList(ListView):
     model = Article
     paginate_by = 10
     context_object_name = 'articles'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['adver'] = Adver.objects.filter(active=True).first()
+        context['random_post'] = Article.objects.order_by('?')[:3]
+        return context
 
     def get_queryset(self):
         query = super().get_queryset()
