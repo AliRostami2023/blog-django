@@ -139,8 +139,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'alirostami1253@gmail.com'
-EMAIL_HOST_PASSWORD = 'rxcorfqiarllawbu'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
@@ -156,3 +156,7 @@ STAR_RATINGS_RERATE = False
 STAR_RATINGS_RANGE = 5
 STAR_RATINGS_ANONYMOUS = False
 STAR_RATINGS_STAR_HEIGHT = 16
+
+
+SESSION_COOKIE_AGE = 10368000
+SESSION_SAVE_EVERY_REQUEST = True

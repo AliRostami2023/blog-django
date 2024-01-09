@@ -66,3 +66,21 @@ class Tag(models.Model):
     class Meta:
         verbose_name = 'tag'
         verbose_name_plural = 'tags'
+
+
+class Comment(models.Model):
+    article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comment')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment')
+    reply = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='replies')
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.article} - {self.user} - {self.body}[:20]"
+    
+    class Meta:
+        verbose_name_plural = 'comments'
+
+
+    
