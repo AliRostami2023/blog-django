@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'article.apps.ArticleConfig',
     'site_setting.apps.SiteSettingConfig',
+    'api.apps.ApiConfig',
 
     # lib
     'django_render_partial',
@@ -46,6 +47,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'star_ratings',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -157,6 +161,31 @@ STAR_RATINGS_RANGE = 5
 STAR_RATINGS_ANONYMOUS = False
 STAR_RATINGS_STAR_HEIGHT = 16
 
-
 SESSION_COOKIE_AGE = 10368000
 SESSION_SAVE_EVERY_REQUEST = True
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '100/day',
+        'user': '600/day',
+    },
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 4
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'Your Project API',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}

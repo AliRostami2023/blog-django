@@ -140,7 +140,7 @@
                                                              class="rounded-circle">
                                                     </a>
                                                     <div class="media-body">
-                                                        <h4 class="media-heading user_name">{{ comment.user.first_name }}
+                                                        <h4 class="media-heading user_name">{{ comment.user.full_name }}
                                                             <small>
                                                                 {{ comment.created }}
                                                             </small></h4>
@@ -159,7 +159,7 @@
                                                     </a>
                                                     <div class="media-body">
 
-                                                        <h4 class="media-heading user_name">{{ reply.user.first_name }}
+                                                        <h4 class="media-heading user_name">{{ reply.user.full_name }}
                                                             <small>
                                                                 {{ reply.created }}
                                                             </small></h4>
@@ -178,6 +178,7 @@
                         </div><!-- end custom-box -->
 
                         <hr class="invis1">
+                        {% if request.user.is_authenticated %}
 
                         <div class="custombox clearfix">
                             <h4 id="rep-and-com" class="small-title">Leave a Reply</h4>
@@ -192,6 +193,9 @@
                                 </div>
                             </div>
                         </div>
+                        {% else %}
+                        <a href='{% url "account:login-page" %}' class='btn btn-primary'>login for create comment</a>
+                        {% endif %}
                     </div><!-- end page-wrapper -->
                 </div><!-- end col -->
 
