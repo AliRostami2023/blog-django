@@ -1,4 +1,5 @@
 from django.contrib.auth import login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
 from django.utils.crypto import get_random_string
@@ -99,12 +100,7 @@ class ForgetPasswordView(View):
         return render(request, 'account/forget-password.html', {'forget_pass': forget_pass})
 
 
-class LogoutView(View):
-    # def dispatch(self, request, *args, **kwargs):
-    #     if request.user.is_authenticated:
-    #         return redirect('home:home-page')
-    #     return super(LogoutView, self).dispatch(request, *args, **kwargs)
-
+class LogoutView(View, LoginRequiredMixin):
     def get(self, request):
         logout(request)
         return redirect('account:login-page')
