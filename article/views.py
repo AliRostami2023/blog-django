@@ -52,26 +52,6 @@ class ArticleDetail(View):
         return render(request, 'article/article-detail.html', {'article': article})
 
 
-# class ArticleDetail(DetailView):
-#     model = Article
-#     template_name = 'article/article-detail.html'
-#
-#     def get_context_data(self, **kwargs):
-#         session_key = f"viewed_article {self.object.slug}"
-#         if not self.request.session.get(session_key, False):
-#             self.object.views += 1
-#             self.object.save()
-#             self.request.session[session_key] = True
-#
-#         context = super(ArticleDetail, self).get_context_data(**kwargs)
-#         context['random_post'] = Article.objects.order_by('?')[:3]
-#         context['adver'] = Adver.objects.filter(active=True).first()
-#         if self.request.method == 'POST':
-#             body = self.request.POST.get('body')
-#             Comment.objects.create(body=body, article=self.object, user=self.request.user)
-#         return context
-
-
 def category_sidebar_component(request):
     categories = Category.objects.filter(published=True).all()
     return render(request, 'article/components/category-component.html', {'categories': categories})
