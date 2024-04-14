@@ -38,9 +38,26 @@
                         </div><!-- end title -->
 
                         <div class="single-post-media">
+                            {% if not article.video %}
                             {% thumbnail article.image '800x460' crop='center' as im %}
                                 <img src="{{ im.url }}" alt="" class="img-fluid">
                             {% endthumbnail %}
+                            {% else %}
+                            <video
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="800"
+    height="460"
+    poster="{{ article.image.url }}"
+    data-setup="{}"
+  >
+  {% if article.video %}
+    <source src="{{ article.video.url }}" type="video/mp4" />
+   {% endif %}
+   {% endif %}
+  </video>
                         </div><!-- end media -->
 
                         <div class="blog-content">

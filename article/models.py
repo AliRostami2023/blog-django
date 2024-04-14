@@ -4,6 +4,7 @@ from django.utils.html import format_html
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 from account.models import User
+from django.core.validators import FileExtensionValidator, MaxValueValidator
 
 
 # Create your models here.
@@ -31,6 +32,10 @@ class Article(models.Model):
     title = models.CharField(max_length=500)
     slug = models.SlugField(max_length=50, blank=True, unique=True, allow_unicode=True)
     image = models.ImageField(upload_to='article')
+    video = models.FileField(upload_to='article/video', null=True, blank=True, validators=[
+         FileExtensionValidator(allowed_extensions=['mp4'], message='Video format must be mp4.'),
+        MaxValueValidator(30 * 1024 * 1024, message='Video size should not exceed 30 megabytes.')
+    ])
     body = RichTextField()
     tags = models.ManyToManyField('Tag', related_name='tag_article')
     created = models.DateField(auto_now_add=True)
