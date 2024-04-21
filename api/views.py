@@ -12,7 +12,7 @@ from django.core.paginator import Paginator
 
 
 class UserListApiView(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsAdminUser]
 
     def get(self, request):
         queryset = User.objects.all()
@@ -24,8 +24,6 @@ class UserListApiView(APIView):
 
 
 class CreateUserApiView(APIView):
-    permission_classes = [IsAuthenticated]
-
     def post(self, request):
         ser_data = CreateUserSerializers(data=request.data)
         if ser_data.is_valid():
