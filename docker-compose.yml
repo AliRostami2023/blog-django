@@ -1,0 +1,51 @@
+version: "3"
+
+services:
+  source:
+    container_name: blog_django
+    build: .
+    command: "python manage.py migrate && python manage.py runserver"
+    volumes:
+      - .:src:rw/
+    expose:
+      - "8000"
+    networks: 
+     - main
+    restart: always
+    depends_on:
+      - postgres_db
+
+  postgres_db: 
+    container_name: postgres
+    image: postgres:16.2
+    environment: 
+      - POSTGRES_DB= postgres
+      - POSTGRES_USER= ali112280
+      - POSTGRES_PASSWORD= 553399191
+    networks:
+     - main
+    restart: always
+    ports: 
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      
+  nginx:
+    container_name: nginx
+    image: nginx:1.25.5
+    command: nginx -g 'daemon off;'
+    depends_on:
+      - source
+    networks:
+     - main
+    ports:
+      - "80:80"
+    restart: always
+    volumes:
+      - ./enginx.conf:/etc/nginx/enginx.conf
+       
+networks:
+  main:
+     
+volumes:
+  postgres_data:
