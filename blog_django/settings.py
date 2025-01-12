@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'article.apps.ArticleConfig',
     'site_setting.apps.SiteSettingConfig',
-    'api.apps.ApiConfig',
 
     # lib
     'django_render_partial',
@@ -47,9 +46,6 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'star_ratings',
-    'rest_framework',
-    'rest_framework.authtoken',
-    'drf_spectacular',
 ]
 
 MIDDLEWARE = [
@@ -91,9 +87,9 @@ WSGI_APPLICATION = 'blog_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': 'ali112280',
-        'PASSWORD': '553399191',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
         'HOST': 'localhost',
         'PORT': '5432', # default PostgreSQL port
 }
@@ -166,28 +162,4 @@ STAR_RATINGS_ANONYMOUS = False
 STAR_RATINGS_STAR_HEIGHT = 16
 
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_THROTTLE_CLASSES': [
-        'rest_framework.throttling.AnonRateThrottle',
-        'rest_framework.throttling.UserRateThrottle'
-    ],
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 
-    'DEFAULT_THROTTLE_RATES': {
-        'anon': '10/day',
-        'user': '20/day',
-    },
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 4
-}
-
-SPECTACULAR_SETTINGS = {
-    'TITLE': 'Blog API',
-    'DESCRIPTION': 'Blog',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
-    # OTHER SETTINGS
-}
