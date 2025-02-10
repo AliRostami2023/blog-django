@@ -87,12 +87,12 @@ WSGI_APPLICATION = 'blog_django.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'postgres',
+        'USER': 'ali112280',
+        'PASSWORD': '553399191',
+        'HOST': 'postgres_db',
         'PORT': '5432', # default PostgreSQL port
-}
+ }
 }
 
 # Password validation
@@ -160,6 +160,4 @@ STAR_RATINGS_RERATE = False
 STAR_RATINGS_RANGE = 5
 STAR_RATINGS_ANONYMOUS = False
 STAR_RATINGS_STAR_HEIGHT = 16
-
-
 
