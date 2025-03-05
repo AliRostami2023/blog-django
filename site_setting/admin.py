@@ -1,9 +1,16 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin
 from .models import Setting, Adver
 
-# Register your models here.
 
 
-admin.site.register(Setting)
-admin.site.register(Adver)
+@admin.register(Setting)
+class SettingAdmin(ModelAdmin):
+    pass
+
+
+@admin.register(Adver)
+class AdverAdmin(ModelAdmin):
+    pass
+
 

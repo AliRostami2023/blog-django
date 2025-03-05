@@ -1,21 +1,21 @@
 from django.contrib import admin
+from unfold.admin import ModelAdmin, TabularInline
 from .models import Category, Article, Tag, Comment
 
 
-# Register your models here.
 
-class CommentInline(admin.TabularInline):
+class CommentInline(TabularInline):
     model = Comment
 
 
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
+class CategoryAdmin(ModelAdmin):
     list_display = ['title', 'url_title', 'published']
     prepopulated_fields = {'url_title': ('title',)}
 
 
 @admin.register(Article)
-class ArticleAdmin(admin.ModelAdmin):
+class ArticleAdmin(ModelAdmin):
     list_display = ['category', 'author', 'title', 'image_tag', 'published']
     list_filter = ['published']
     search_fields = ['category', 'author', 'title']
@@ -25,7 +25,7 @@ class ArticleAdmin(admin.ModelAdmin):
 
 
 @admin.register(Tag)
-class TagAdmin(admin.ModelAdmin):
+class TagAdmin(ModelAdmin):
     prepopulated_fields = {'url_title': ('tag',)}
 
 

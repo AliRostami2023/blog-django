@@ -1,14 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.models import Group
-
+from unfold.admin import ModelAdmin
 from .models import User
 
 
-# Register your models here.
-
 
 @admin.register(User)
-class UserAdmin(admin.ModelAdmin):
+class UserAdmin(ModelAdmin):
     list_display = ['full_name', 'email']
     search_fields = ['full_name', 'email']
 
