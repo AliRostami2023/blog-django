@@ -1,4 +1,3 @@
-from django.http import HttpRequest
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView
 from site_setting.models import Adver
@@ -6,8 +5,6 @@ from article.models import Article, Category
 from django.views import View
 from .models import Comment
 
-
-# Create your views here.
 
 
 class ArticleList(ListView):
@@ -33,23 +30,29 @@ class ArticleList(ListView):
 
 
 class ArticleDetail(View):
-    def get(self, request: HttpRequest, slug):
-        article = get_object_or_404(Article, slug=slug)
+    template_name = 'article/article-detail.html'
+
+    def setup(self, request, *args, **kwargs):
+        self.article_slug = get_object_or_404(Article, slug=kwargs['slug'])
+        return super().setup(request, *args, **kwargs)
+
+    def get(self, request, *args, **kwargs):
+        article = self.article_slug
         session_key = f"viewed_article {article.slug}"
         if not request.session.get(session_key, False):
             article.views += 1
             article.save()
             request.session[session_key] = True
 
-        return render(request, 'article/article-detail.html', {'article': article})
+        return render(request, self.template_name, {'article': article})
 
-    def post(self, request: HttpRequest, slug):
-        article = get_object_or_404(Article, slug=slug)
+    def post(self, request, *args, **kwargs):
+        article = self.article_slug
 
         reply_id = request.POST.get('reply_id')
         body = request.POST.get('body')
         Comment.objects.create(body=body, article=article, user=request.user, reply_id=reply_id)
-        return render(request, 'article/article-detail.html', {'article': article})
+        return render(request, self.template_name, {'article': article})
 
 
 def category_sidebar_component(request):

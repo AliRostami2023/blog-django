@@ -7,15 +7,20 @@ from account.models import User
 from django.core.validators import FileExtensionValidator, MaxValueValidator
 
 
-# Create your models here.
+
+class UpdateCreateMixin(models.Model):
+    created = models.DateTimeField(auto_now_add=True)
+    updeted = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
 
 
-class Category(models.Model):
+
+class Category(UpdateCreateMixin):
     title = models.CharField(max_length=300)
     url_title = models.CharField(max_length=50, verbose_name='slug')
     published = models.BooleanField(default=True)
-    created = models.DateTimeField(auto_now_add=True)
-    updeted = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -26,7 +31,7 @@ class Category(models.Model):
         ordering = ['created']
 
 
-class Article(models.Model):
+class Article(UpdateCreateMixin):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_article')
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_article')
     title = models.CharField(max_length=500)
@@ -38,8 +43,6 @@ class Article(models.Model):
     ])
     body = RichTextField()
     tags = models.ManyToManyField('Tag', related_name='tag_article')
-    created = models.DateField(auto_now_add=True)
-    updated = models.DateField(auto_now=True)
     published = models.BooleanField(default=True)
     views = models.PositiveIntegerField(default=0)
 
@@ -73,13 +76,11 @@ class Tag(models.Model):
         verbose_name_plural = 'tags'
 
 
-class Comment(models.Model):
+class Comment(UpdateCreateMixin):
     article = models.ForeignKey(Article, on_delete=models.CASCADE, related_name='comment')
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_comment')
     reply = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='replies')
     body = models.TextField()
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return f"{self.article} - {self.user} - {self.body}[:20]"

@@ -1,13 +1,10 @@
 from django.core.paginator import Paginator
-from django.http import HttpRequest
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from article.models import Article
 from article.models import Category
 from site_setting.models import Setting, Adver
 
-
-# Create your views here.
 
 
 class HomeView(TemplateView):
@@ -22,7 +19,7 @@ class HomeView(TemplateView):
         return context
 
 
-def search(request: HttpRequest):
+def search(request):
     q = request.GET.get('q')
     articles = Article.objects.filter(title__icontains=q)
     page_number = request.GET.get('page')

@@ -11,7 +11,7 @@ class RegisterForm(forms.Form):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={"placeholder": "confirm password", "class": "un"}),
                                 label='')
 
-    def clean_password2(self):
+    def clean(self):
         password = self.cleaned_data.get('password1')
         confirm_password = self.cleaned_data.get('password2')
 
