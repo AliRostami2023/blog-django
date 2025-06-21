@@ -1,16 +1,15 @@
 from django.contrib import admin
-from unfold.admin import ModelAdmin
 from .models import Setting, Adver
 
 
 
 @admin.register(Setting)
-class SettingAdmin(ModelAdmin):
+class SettingAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(Adver)
-class AdverAdmin(ModelAdmin):
+class AdverAdmin(admin.ModelAdmin):
     pass
 
 

@@ -1,31 +1,29 @@
 from django.contrib import admin
-from unfold.admin import ModelAdmin, TabularInline
 from .models import Category, Article, Tag, Comment
 
 
 
-class CommentInline(TabularInline):
+class CommentInline(admin.TabularInline):
     model = Comment
 
 
 @admin.register(Category)
-class CategoryAdmin(ModelAdmin):
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ['title', 'url_title', 'published']
     prepopulated_fields = {'url_title': ('title',)}
 
 
 @admin.register(Article)
-class ArticleAdmin(ModelAdmin):
-    list_display = ['category', 'author', 'title', 'image_tag', 'published']
+class ArticleAdmin(admin.ModelAdmin):
+    list_display = ['category', 'author', 'title', 'image_tag']
     list_filter = ['published']
     search_fields = ['category', 'author', 'title']
     prepopulated_fields = {'slug': ('title',)}
-    list_editable = ['title']
     inlines = [CommentInline]
 
 
 @admin.register(Tag)
-class TagAdmin(ModelAdmin):
+class TagAdmin(admin.ModelAdmin):
     prepopulated_fields = {'url_title': ('tag',)}
 
 
