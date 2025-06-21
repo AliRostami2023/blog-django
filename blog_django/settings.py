@@ -29,7 +29,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    "unfold",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -168,4 +167,3 @@ STAR_RATINGS_RERATE = False
 STAR_RATINGS_RANGE = 5
 STAR_RATINGS_ANONYMOUS = False
 STAR_RATINGS_STAR_HEIGHT = 16
-

@@ -53,7 +53,7 @@ class Article(UpdateCreateMixin):
         return reverse('article:article-detail', args=[self.slug])
 
     def image_tag(self):
-        return format_html('<img src = "{}" width=60% height=40px>'.format(self.image.url))
+        return format_html('<img src = "{}" width=80% height=50px>'.format(self.image.url))
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
